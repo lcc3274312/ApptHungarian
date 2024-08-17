@@ -1,4 +1,62 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<div style="display: flex;">
+  <div>
+    <div>
+      <form nz-form [formGroup]="apptFrom">
+        <nz-form-item>
+          <nz-form-control>
+            <nz-date-picker
+              formControlName="apptTime"
+              nzPlaceHolder="開放時段"
+              [nzShowTime]="{ nzFormat: 'HH' }"
+              nzFormat="MM/dd HH"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <button
+            nz-button
+            nzType="primary"
+            (click)="onAddApptTime()"
+          >
+            Add
+        </button>
+        </nz-form-item>
+      </form>
+    </div>
+  </div>
+  <div>
+    <form nz-form [formGroup]="userForm">
+      <nz-form-item>
+        <nz-form-control>
+          <input
+            nz-input
+            placeholder="Line 名稱"
+            formControlName="userName" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-select
+            nzMode="multiple"
+            nzPlaceHolder="可以時段"
+            [nzOptions]="apptTimes"
+            formControlName="userTime" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <button nz-button nzType="primary" (click)="onAddUser()">Add</button>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
+<div
+  nz-row
+  style="display: flex; flex-direction: row; flex: auto;">
+  <ag-grid-angular
+    #agGrid
+    class="ag-theme-alpine"
+    [gridOptions]="gridOptions"
+    [rowData]="rowData" />
+</div>
+
+<button nz-button nzType="primary" (click)="optimize()">Add</button>
