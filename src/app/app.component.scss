@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
   width: 100%;
 }
@@ -8,5 +8,21 @@
 ag-grid-angular {
   display: flex;
   flex: auto;
+  flex-direction: column;
+}
+
+.tool,
+.grid,
+.appt-form,
+.user-form {
+  display: flex;
+}
+
+.grid {
+  flex: auto;
+}
+
+.tool,
+.grid {
   flex-direction: column;
 }
